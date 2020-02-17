@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title> JavaScript Form Validation </title>
+        
+        <script type="text/javascript">
+
+            function validation()
+            {
+                var correct_way = /^[A-Za-z ]+$/;
+                var a = document.getElementById("name").value;
+                var b = document.getElementById("password").value;
+                var c = document.getElementById("pass").value;
+                var d = document.getElementById("email").value;
+
+                var correct_way1 = /^[0-9]{10}$/;
+               var e = document.getElementById("mob_no").value;
+                var radio1 = document.getElementById("male").checked;
+                var radio2 = document.getElementById("female").checked;
+
+
+                if(a==""){
+                    document.getElementById("message").innerHTML="** please fill name";
+                    return false;
+                }
+                if(a.length<3){
+                    document.getElementById("message").innerHTML="** username must be 3 character";
+                    return false;
+                }
+                if(a.length>20){
+                    document.getElementById("message").innerHTML="** username must be smaller than 20 character";
+                    return false;
+                }            
+                if(a.match(correct_way))
+                true;
+                else{
+                    document.getElementById("message").innerHTML="** only allowed the alphabets";
+                    return false;
+                }
+                if(b==""){
+                    document.getElementById("msg1").innerHTML="** enter the password";
+                    return false;
+                }
+                if(b.length<4){
+                    document.getElementById("msg1").innerHTML="**password length must be greater than 4 character";
+                    return false;
+                }
+                if(b.length>14){
+                    document.getElementById("msg1").innerHTML="** password length must be smaller than 14 character";
+                    return false;
+                }
+                if(b!=c){
+                    document.getElementById("msg").innerHTML="** password are not same";
+                    return false;
+                }
+                if(d==""){
+                    document.getElementById("msg2").innerHTML="** Enter the email";
+                    return false;
+                }
+                if(e==""){
+                    document.getElementById("msg3").innerHTML="**please enter the mobile_no";
+                    return false;
+                }
+                if(isNaN(e)){
+                    docunemt.getElementById("msg3").innerHTML="*enter only numeric value";
+                    return false;
+                }
+                if(e.length<10){
+                    document.getElementById("msg3").innerHTML="**mobile_no must be 10 digit";
+                    return false;
+                }
+                if(e.length>10){
+                    document.getElementById("msg3").innerHTML="**mobile_no are also must be 10 digit";
+                    return false;
+                }
+                if((e.charAt(0)!=9) && (e.charAt(0)!=8) && (e.charAt(0)!=7)){
+                    document.getElementById("msg3").innerHTML="*mob_no must start with 9,8 and 7";
+                    return false;
+                }
+                if(e.match(correct_way1))
+                true;
+                else{
+                    document.getElementById("msg3").innerHTML="** only allowed the digit";
+                    return false;
+                }
+                if((radio1=="")&&(radio2=="")){
+                    document.getElementById("gender").innerHTML="* select either male or female";
+                    return false;
+                }
+                   return true;
+                   }
+                </script>
+            </head>
+            <body>
+        <h1 style="color: green; text-align: center;" > Registration Form Validation In JavaScript </h1>
+        <form action="create.html" onsubmit="return validation();">
+
+          UserName : <input type="text" id="name" value="">
+          <span id = "message" style="color:red;">  </span><br></br>
+          password : <input type="password" id="password" value="">
+           <span id="msg1" style="color:red;"> </span><br></br>
+           confirm password : <input type="password" id="pass" value="">
+           <span id="msg"style="color:red;"> </span><br></br>
+           Email : <input type="email" id="email" value="">
+           <span id="msg2" style="color: red;"></span><br></br>
+           mobile_no : <input type="text" id="mob_no" value="">
+           <span id="msg3" style="color:red;"></span><br></br>
+           Gender : <input type="radio" id="male">male
+           <input type="radio" id="female">female
+           <span id="gender" style="color: red;"></span><br></br>
+           <input type="submit" value="Submit">
+
+        </form>
+       
+    </body>
+</html>
